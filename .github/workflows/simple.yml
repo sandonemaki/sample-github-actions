@@ -1,22 +1,16 @@
-#workflow名
-name: shell Commands
-#イベントトリガー
-#Git Pushした時にこのワークフローを実行する
-on: [Push]
+name: assssddd
+
+on: push
 
 jobs:
-  #job名（任意の名前で良い)
-  run-shell-command:
-    #virtual machineの形式を指定
+  chromatic-deployment:
+    name: Sample
     runs-on: ubuntu-latest
-    #jobのステップ
+    timeout-minutes: 7
     steps:
-      #ステップ名
-      - name: echo a string
-        run: echo "Hello world"
-      #ステップ2
-      - name: multiline script
-        run: | #複数のコマンドを記載したいときは|（パイプ）で繋ぐ
-          node -v
-          npm -v
-
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: echo Hello World
