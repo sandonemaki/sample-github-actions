@@ -1,6 +1,6 @@
 name: assssddd
 
-on: push
+on: [push]
 
 jobs:
   chromatic-deployment:
